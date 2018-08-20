@@ -33,9 +33,13 @@ class SQL:
         return task.id
     
     def is_task_present(self, id):
-        is_task = Tasks.query.filter_by(id=id).first()
-        if is_task:
-            return True
+        try:
+            if type(int(id)) == type(3): 
+                is_task = Tasks.query.filter_by(id=id).first()
+                if is_task:
+                    return True
+        except ValueError:
+            return False
         return False
 
     def get_task(self, id):
