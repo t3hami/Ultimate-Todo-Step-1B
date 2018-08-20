@@ -1,5 +1,3 @@
-> Code coming soon......
-
 # The Ultimate To-Do App Project
 
 The Path to becoming the Ultimate Developer
