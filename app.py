@@ -36,8 +36,8 @@ def task(task_id):
 
     elif request.method == 'PUT':
         if postgre.is_task_present(task_id):
-            if not request.json:
-                return jsonify({'status': 'Please provide atleast one key, value to update'})
+            if not request.json or not isinstance(request.json['done'],bool):
+                return jsonify({'status': 'Please provide atleast one key, value to update. (done key must be boolean)'})
             old_task = {}
             old_task = postgre.get_task(task_id)
             old_task['_id'] = int(old_task['_id'])
